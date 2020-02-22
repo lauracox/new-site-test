@@ -1,0 +1,22 @@
+#about {
+	li {
+		a {
+			@include text-setting(xs);
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			@include customize(theme) {color: getValue(footerText);}
+			display: block;
+			padding: 0.2em 0.8em;
+		}
+	
+		&:hover {
+			@include customize(theme) {
+				background: getValue(footerBGHover);
+				box-shadow: getValue(iconColor) -0.2em 0;
+			}
+		}
+
+		&:hover a {@include customize(theme) {color: getValue(footerTextHover);}}
+	}
+}

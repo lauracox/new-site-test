@@ -1,0 +1,68 @@
+.logo {
+	cursor: pointer;
+	padding: 1em 2em;
+	@include customize(theme) {background: getValue(logoMenuBG);}
+	@include bp(small) {
+		height: 60px;
+		padding: .25em 1em;
+	}
+		
+	> a {
+		display: inline-block;
+		font-family: $font-main;
+		@include text-setting(sm);
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		@include customize(theme) {color: getValue(logoText);}
+		text-transform: uppercase;
+		padding: 1em 0;
+		@include bp(small) {padding: 0 0.5em;}
+
+		> span {
+			font-family: $font-brand;
+			@include text-setting(xl);
+			padding: 2px 4px 2px 6px;
+			border-radius: 0px;
+			border-width: 0px;
+			@include customize(theme) {
+				background-color: getValue(btnBG);
+				box-shadow: inset getValue(logoBtnShadow) 0 0 0 3px,
+							getValue(logoBtnShadow) -1px 1px, 
+							getValue(logoBtnShadow) -2px 2px, 
+							getValue(logoBtnShadow) -3px 3px, 
+							getValue(logoBtnShadow) -4px 4px, 
+							getValue(logoBtnShadow) -5px 5px, 
+							getValue(logoBtnShadow) -6px 6px, 
+							getValue(logoBtnShadow) -7px 7px, 
+							getValue(logoBtnShadow) -8px 8px, 
+							getValue(logoBtnShadow) -9px 9px, 
+							getValue(logoBtnShadow) -10px 10px;
+			}
+		}
+
+		&:hover {
+			transform: translate(-5px, 5px);
+			@include customize(theme) {color: getValue(logoTextHover);}
+		}
+
+		&:hover > span {
+			@include customize(theme) {
+				color: getValue(logoTextHover);
+				background-color: getValue(btnBGHover);
+				box-shadow: inset getValue(logoBtnShadowHover) 0 0 0 3px,
+							getValue(logoBtnShadowHover) -1px 1px, 
+							getValue(logoBtnShadowHover) -2px 2px, 
+							getValue(logoBtnShadowHover) -3px 3px, 
+							getValue(logoBtnShadowHover) -4px 4px, 
+							getValue(logoBtnShadowHover) -5px 5px;
+			}
+		}
+	}
+}
+
+.nav-toggle-open {
+	.logo {
+		@include bp(small) {height: 80px;}
+		a {@include bp(small) {padding: 1em 2em;}}
+	}
+}

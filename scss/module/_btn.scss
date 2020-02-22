@@ -1,0 +1,83 @@
+.btn-box {
+	border-radius: 0px;
+	border-width: 0px;
+	@include customize(theme) {
+		background-color: getValue(btnBG);
+		box-shadow: inset 
+				getValue(btnShadow) 0 0 0 3px,
+				getValue(btnShadow) -1px 1px, 
+				getValue(btnShadow) -2px 2px, 
+				getValue(btnShadow) -3px 3px, 
+				getValue(btnShadow) -4px 4px, 
+				getValue(btnShadow) -5px 5px, 
+				getValue(btnShadow) -6px 6px, 
+				getValue(btnShadow) -7px 7px, 
+				getValue(btnShadow) -8px 8px, 
+				getValue(btnShadow) -9px 9px, 
+				getValue(btnShadow) -10px 10px;
+	}
+	
+	&:hover {
+		transform: translate(-5px, 5px);
+		@include customize(theme) {
+			background-color: getValue(btnBGHover);
+			box-shadow: inset 
+					getValue(btnShadowHover) 0 0 0 3px,
+					getValue(btnShadowHover) -1px 1px, 
+					getValue(btnShadowHover) -2px 2px, 
+					getValue(btnShadowHover) -3px 3px, 
+					getValue(btnShadowHover) -4px 4px, 
+					getValue(btnShadowHover) -5px 5px;
+		}
+	}
+}
+
+.btn-shadow {
+	border-radius: 0px;
+	border-width: 0px;
+	@include customize(theme) {
+		background-color: getValue(btnBG);
+		box-shadow: getValue(btnShadow) -1px 1px, 
+					getValue(btnShadow) -2px 2px, 
+					getValue(btnShadow) -3px 3px, 
+					getValue(btnShadow) -4px 4px, 
+					getValue(btnShadow) -5px 5px;
+	}
+
+	&:hover {
+		transform: translate(-2px, 2px);
+		@include customize(theme) {
+			background-color: getValue(btnBGHover);
+			box-shadow: getValue(btnShadowHover) -1px 1px, 
+						getValue(btnShadowHover) -2px 2px, 
+						getValue(btnShadowHover) -3px 3px;
+		}
+	}
+
+	* {
+		font-family: $font-main;
+		@include text-setting(sm);
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		line-height: 0.1em;
+		text-transform: uppercase;
+		padding: 4px 4px 2px 4px;
+		@include customize(theme) {color: getValue(btnText);}
+
+		&:hover {@include customize(theme) {color: getValue(btnTextHover);}}
+	}
+}
+
+.btn-basic {
+	font-family: $font-main;
+	background: none;
+	border-radius: 0px;
+	border-width: 0px;
+
+	&:hover {
+		@include customize(theme) {
+			background: getValue(btnBGHover);
+			box-shadow: getValue(iconColor) -5px 0; 
+		}
+	}
+}

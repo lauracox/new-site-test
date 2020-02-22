@@ -1,0 +1,118 @@
+.project {
+	@include customize(theme) {background: getValue(contentBG);}
+
+	.hero {
+		width: 100%;
+		height: 70vh;
+		display: flex;
+		justify-content: center;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			object-fit: cover;
+			padding: 0;
+		}
+	}
+
+	h1 {
+		display: inline-block;
+		font-family: $font-brand-alt;
+		font-size: 2rem;
+		line-height: 1.35em;
+		padding: 4px 8px;
+		margin: 3rem 5rem;
+		@include bp(large) {margin: 3rem 3rem;}
+		@include bp(med) {margin: 3rem 1rem;}
+		@include customize(theme) {
+			color: getValue(infoTitle);
+			background: getValue(headTextBG);
+		}
+		box-decoration-break: clone;
+	}
+
+	.tags {
+		margin: 1rem 5rem;
+		@include bp(large) {margin: 1rem 3rem;}
+		@include bp(med) {margin: 1rem 1rem;}
+		max-width: 600px;
+
+		a {
+			font: .75rem/2rem $font-caption;
+			letter-spacing: 0.1em;
+			padding: 2px 6px;
+			margin: 0 1em 0 0;
+			@include customize(theme) {
+				color: getValue(tagText);
+				background: getValue(tagBG);
+			}
+
+			&:hover {@include customize(theme) {color: getValue(tagTextHover);}}
+		}
+	}
+
+	h3 {
+		@include text-setting(xl);
+		grid-column: 1 / span 2;
+		@include bp(med) {grid-column: 1 / span 1;}
+	}
+
+	p {
+		font-family: $font-main;
+		@include text-setting(base);
+		padding: 2em 2em 2em 0;
+	}
+
+	img {padding: 2em 2em 2em 0;}
+	video {width: 100%; height: auto;}
+
+	.col-1 {grid-column-start: 1;}
+
+	.col-2 {
+		grid-column-start: 2;
+		@include bp(large) {grid-column-start: 1;}
+	}
+
+	.col-3 {
+		grid-column-start: 3;
+		@include bp(large) {grid-column-start: 2;}
+		@include bp(med) {grid-column-start: 1;}
+	}
+
+	.col-4 {
+		grid-column-start: 4;
+		@include bp(large) {grid-column-start: 2;}
+		@include bp(med) {grid-column-start: 1;}
+	}
+
+	.span-1 {grid-column-end: span 1;}
+
+	.span-2 {
+		grid-column-end: span 2;
+		grid-row-end: span 2;
+		@include bp(large) {
+			grid-column-end: span 1;
+			grid-row-end: span 1;
+		}
+	}
+
+	.span-3 {
+		grid-column-end: span 3;
+		grid-row-end: span 2;
+		@include bp(large) {grid-column-end: span 2;}
+		@include bp(med) {
+			grid-column-end: span 1;
+			grid-row-end: span 1;
+		}
+	}
+
+	.span-4 {
+		grid-column-end: span 4;
+		grid-row-end: span 2;
+		@include bp(large) {grid-column-end: span 2;}
+		@include bp(med) {
+			grid-column-end: span 1;
+			grid-row-end: span 1;
+		}
+	}
+}

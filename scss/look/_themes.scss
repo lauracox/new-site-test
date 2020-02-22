@@ -1,0 +1,436 @@
+// COLORS
+
+$white: #fafafa;
+$black: #1a1a1a;
+
+$off-white: #fcf9f5;
+$ivory: #f9f4e8;
+$cream: #fcf0d0;
+$tan: #eae3d3;
+$beige: #e0d4b8;
+
+$gray-light-light: #f2f2f2;
+$gray-light-base: #e6e6e6;
+$gray-light-dark: #d9d9d9;
+$gray-med-light: #bfbfbf;
+$gray-med-base: #999;
+$gray-med-dark: #808080;
+$gray-dark-light: #595959;
+$gray-dark-base: #404040;
+$gray-dark-dark: #2f2f2f;
+
+$red-muted-light: lighten(#cf9d93, 10%);
+$red-muted-base: #cf9d93;
+$red-muted-dark: darken(#cf9d93, 10%);
+$yellow-muted-light: lighten(#e2caa2, 10%);
+$yellow-muted-base: #e2caa2;
+$yellow-muted-dark: darken(#e2caa2, 10%);
+$green-muted-light: lighten(#8fa48a, 10%);
+$green-muted-base: #8fa48a;
+$green-muted-dark: darken(#8fa48a, 10%);
+$blue-muted-light: lighten(#8694c6, 10%);
+$blue-muted-base: #8694c6;
+$blue-muted-dark: darken(#8694c6, 10%);
+ 
+$green-light-light: lighten(#44ce82, 40%);
+$green-light-base: lighten(#44ce82, 30%);
+$green-light-dark: lighten(#44ce82, 20%);
+$green-med-light: lighten(#44ce82, 10%);
+$green-med-base: #44ce82;
+$green-med-dark: darken(#44ce82, 10%);
+$green-dark-light: darken(#44ce82, 20%);
+$green-dark-base: darken(#44ce82, 30%);
+$green-dark-dark: darken(#44ce82, 40%);
+
+$lichen: #e6f8ee;
+$mint: #bdeed3;
+$seafoam: #91edc1;
+$jade: #6cd99d;
+$absinthe: #59e98d;
+$emerald: #00774f;
+$sage: #cfddce;
+$army: #8fa48a;
+$moss: #748d6e;
+$olive: #547a5c;
+$fern: #33664a;
+
+$peach-light: lighten(#ffa77b, 10%);
+$peach-base: #ffa77b;
+$peach-dark: darken(#ffa77b, 10%);
+$lemon-light: lighten(#ffe85f, 10%);
+$lemon-base: #ffe85f;
+$lemon-dark: darken(#ffe85f, 10%);
+$mint-light: lighten(#86efac, 10%);
+$mint-base: #86efac;
+$mint-dark: darken(#86efac, 10%);
+$sky-light: lighten(#8bf3ff, 10%);
+$sky-base: #8bf3ff;
+$sky-dark: darken(#8bf3ff, 10%);
+$lilac-light: lighten(#a6a0f9, 10%);
+$lilac-base: #a6a0f9;
+$lilac-dark: darken(#a6a0f9, 10%);
+
+
+// https://medium.com/@sanuthadathil/theme-and-color-scheme-sass-way-a62d68614ef3
+
+$themes: (
+  grayscale: (
+    menuBG: $gray-med-light,
+    menuBGHover: $gray-light-light,
+    menuText: $gray-dark-base,
+    menuTextHover: $black,
+    iconColor: $gray-dark-base,
+
+    logoMenuBG: $gray-light-light,
+    workMenuBG: $gray-light-base,
+    playMenuBG: $gray-light-dark,
+    infoMenuBG: $gray-med-light,
+
+    contentBG: $gray-light-light,
+    logoBG: $gray-light-light,
+    workBG: $gray-light-base,
+    playBG: $gray-light-dark,
+    infoBG: $gray-med-light,
+
+    footerBG: $gray-med-light,
+    footerBGHover: $gray-light-dark,
+    footerText: $gray-dark-base,
+    footerTextHover: $black,
+    copyBG: $gray-med-dark,
+    copyText: $white,
+
+    workMenuTitle: $gray-dark-base,
+    playMenuTitle: $gray-dark-base,
+    infoMenuTitle: $gray-dark-base,
+    workMenuHover: $gray-dark-dark,
+    playMenuHover: $gray-dark-dark,
+    infoMenuHover: $gray-dark-dark,
+
+    workTitle: $white,
+    workTitleHover: $white,
+    playTitle: $white,
+    playTitleHover: $white,
+    infoTitle: $gray-dark-base,
+    headBG: $gray-dark-base,
+    headBGHover: $gray-dark-dark,
+    tagBG: $gray-med-dark,
+    tagText: $white,
+    tagTextHover: $gray-dark-base,
+
+    btnBG: $gray-light-light,
+    btnBGHover: $gray-light-base,
+    btnShadow: $gray-dark-base,
+    btnShadowHover: $gray-dark-dark,
+    btnText: $gray-dark-base,
+    btnTextHover: $black,
+
+    logoBtnBGHover: $gray-light-base,
+    logoBtnShadow: $gray-dark-base,
+    logoText: $gray-dark-base,
+    logoTextHover: $black,
+
+    textLight: $white,
+    textBase: $gray-dark-base,
+    textDark: $black,
+
+    themeBG: $gray-med-dark,
+    themeText: $white,
+    grayscaleBtn: $gray-dark-light,
+    greenDreamBtn: $green-med-base,
+    mutedBtn: $red-muted-base,
+    darkModeBtn: $black,
+    laurasPickBtn: $lilac-base,
+  ),
+  greenDream: (
+    menuBG: $green-med-base,
+    menuBGHover: $white,
+    menuText: $gray-dark-dark,
+    menuTextHover: $green-med-dark,
+    iconColor: $gray-dark-base,
+
+    logoMenuBG: $green-med-base,
+    workMenuBG: $green-med-base,
+    playMenuBG: $green-med-base,
+    infoMenuBG: $green-med-base,
+
+    contentBG: $white,
+    logoBG: $green-light-dark,
+    workBG: $white,
+    playBG: $white,
+    infoBG: $white,
+
+    footerBG: $green-light-dark,
+    footerBGHover: $white,
+    footerText: $gray-dark-base,
+    footerTextHover: $green-med-dark,
+    copyBG: $gray-dark-light,
+    copyText: $gray-light-light,
+
+    workMenuTitle: $white,
+    playMenuTitle: $white,
+    infoMenuTitle: $white,
+    workMenuHover: $gray-dark-base,
+    playMenuHover: $gray-dark-base,
+    infoMenuHover: $gray-dark-base,
+
+    workTitle: $white,
+    workTitleHover: $green-med-dark,
+    playTitle: $white,
+    playTitleHover: $green-med-dark,
+    infoTitle: $gray-dark-base,
+    headBG: $green-med-dark,
+    headBGHover: $white,
+    tagBG: $gray-dark-light,
+    tagText: $gray-light-light,
+    tagTextHover: $green-med-base,
+    
+    btnBG: $white,
+    btnBGHover: $white,
+    btnShadow: $gray-dark-base,
+    btnShadowHover: $green-dark-light,
+    btnText: $gray-dark-base,
+    btnTextHover: $green-med-dark,
+
+    logoBtnBGHover: $gray-light-base,
+    logoBtnShadow: $gray-dark-base,
+    logoText: $gray-dark-dark,
+    logoTextHover: $black,
+    
+    textLight: $white,
+    textBase: $gray-dark-base,
+    textDark: $black,
+    
+    themeBG: $gray-dark-light,
+    themeText: $gray-light-light,
+    grayscaleBtn: $gray-med-base,
+    greenDreamBtn: $green-med-base,
+    mutedBtn: $red-muted-dark,
+    darkModeBtn: $black,
+    laurasPickBtn: $lilac-base,
+  ),
+  muted: (
+    menuBG: $off-white,
+    menuBGHover: $white,
+    menuText: $gray-dark-base,
+    menuTextHover: $black,
+    iconColor: $gray-dark-base,
+
+    logoMenuBG: $off-white,
+    workMenuBG: $off-white,
+    playMenuBG: $off-white,
+    infoMenuBG: $off-white,
+
+    contentBG: $white,
+    logoBG: $white,
+    workBG: $white,
+    playBG: $white,
+    infoBG: $white,
+
+    footerBG: $off-white,
+    footerBGHover: $white,
+    footerText: $gray-dark-base,
+    footerTextHover: $black,
+    copyBG: $gray-med-dark,
+    copyText: $white,
+
+    workMenuTitle: $red-muted-base,
+    playMenuTitle: $green-muted-base,
+    infoMenuTitle: $blue-muted-base,
+    workMenuHover: $red-muted-dark,
+    playMenuHover: $green-muted-dark,
+    infoMenuHover: $blue-muted-dark,
+
+    workTitle: $white,
+    workTitleHover: $white,
+    playTitle: $white,
+    playTitleHover: $white,
+    infoTitle: $gray-dark-base,
+    headBG: $gray-dark-base,
+    headBGHover: $gray-dark-dark,
+    tagBG: $gray-med-dark,
+    tagText: $white,
+    tagTextHover: $gray-dark-base,
+
+    btnBG: $white,
+    btnBGHover: $gray-light-base,
+    btnShadow: $gray-dark-base,
+    btnShadowHover: $gray-dark-dark,
+    btnText: $gray-dark-base,
+    btnTextHover: $black,
+
+    logoBtnBGHover: $gray-light-base,
+    logoBtnShadow: $gray-dark-base,
+    logoText: $gray-dark-base,
+    logoTextHover: $black,
+
+    textLight: $white,
+    textBase: $gray-dark-base,
+    textDark: $black,
+
+    themeBG: $gray-med-dark,
+    themeText: $white,
+    grayscaleBtn: $gray-dark-light,
+    greenDreamBtn: $green-med-base,
+    mutedBtn: $red-muted-base,
+    darkModeBtn: $black,
+    laurasPickBtn: $lilac-base,
+  ),
+  darkMode: (
+    menuBG: $gray-med-light,
+    menuBGHover: $gray-med-light,
+    menuText: $gray-dark-base,
+    menuTextHover: $black,
+    iconColor: $gray-dark-base,
+
+    logoMenuBG: $gray-light-light,
+    workMenuBG: $gray-light-base,
+    playMenuBG: $gray-light-dark,
+    infoMenuBG: $gray-med-light,
+
+    contentBG: $gray-light-light,
+    logoBG: $gray-light-light,
+    workBG: $gray-light-base,
+    playBG: $gray-light-dark,
+    infoBG: $gray-med-light,
+
+    footerBG: $gray-med-light,
+    footerBGHover: $gray-light-dark,
+    footerText: $gray-dark-base,
+    footerTextHover: $black,
+    copyBG: $gray-med-dark,
+    copyText: $white,
+
+    workMenuTitle: $gray-dark-base,
+    playMenuTitle: $gray-dark-base,
+    infoMenuTitle: $gray-dark-base,
+    workMenuHover: $gray-dark-dark,
+    playMenuHover: $gray-dark-dark,
+    infoMenuHover: $gray-dark-dark,
+
+    workTitle: $white,
+    workTitleHover: $white,
+    playTitle: $white,
+    playTitleHover: $white,
+    infoTitle: $gray-dark-base,
+    headBG: $gray-dark-base,
+    headBGHover: $gray-dark-dark,
+    tagBG: $gray-med-dark,
+    tagText: $white,
+    tagTextHover: $gray-dark-base,
+
+    btnBG: $gray-light-light,
+    btnBGHover: $gray-light-base,
+    btnShadow: $gray-dark-base,
+    btnShadowHover: $gray-dark-dark,
+    btnText: $gray-dark-base,
+    btnTextHover: $black,
+
+    logoBtnBGHover: $gray-light-base,
+    logoBtnShadow: $gray-dark-base,
+    logoText: $gray-dark-base,
+    logoTextHover: $black,
+
+    textLight: $white,
+    textBase: $gray-dark-base,
+    textDark: $black,
+
+    themeBG: $gray-med-dark,
+    themeText: $white,
+    grayscaleBtn: $gray-dark-light,
+    greenDreamBtn: $green-med-base,
+    mutedBtn: $red-muted-base,
+    darkModeBtn: $black,
+    laurasPickBtn: $lilac-base,
+  ),
+  laurasPick: (
+    menuBG: $gray-med-light,
+    menuBGHover: $gray-med-light,
+    menuText: $gray-dark-base,
+    menuTextHover: $black,
+    iconColor: $gray-dark-base,
+
+    logoMenuBG: $gray-light-light,
+    workMenuBG: $gray-light-base,
+    playMenuBG: $gray-light-dark,
+    infoMenuBG: $gray-med-light,
+
+    contentBG: $gray-light-light,
+    logoBG: $gray-light-light,
+    workBG: $gray-light-base,
+    playBG: $gray-light-dark,
+    infoBG: $gray-med-light,
+
+    footerBG: $gray-med-light,
+    footerBGHover: $gray-light-dark,
+    footerText: $gray-dark-base,
+    footerTextHover: $black,
+    copyBG: $gray-med-dark,
+    copyText: $white,
+
+    workMenuTitle: $gray-dark-base,
+    playMenuTitle: $gray-dark-base,
+    infoMenuTitle: $gray-dark-base,
+    workMenuHover: $gray-dark-dark,
+    playMenuHover: $gray-dark-dark,
+    infoMenuHover: $gray-dark-dark,
+
+    workTitle: $white,
+    workTitleHover: $white,
+    playTitle: $white,
+    playTitleHover: $white,
+    infoTitle: $gray-dark-base,
+    headBG: $gray-dark-base,
+    headBGHover: $gray-dark-dark,
+    tagBG: $gray-med-dark,
+    tagText: $white,
+    tagTextHover: $gray-dark-base,
+
+    btnBG: $gray-light-light,
+    btnBGHover: $gray-light-base,
+    btnShadow: $gray-dark-base,
+    btnShadowHover: $gray-dark-dark,
+    btnText: $gray-dark-base,
+    btnTextHover: $black,
+
+    logoBtnBGHover: $gray-light-base,
+    logoBtnShadow: $gray-dark-base,
+    logoText: $gray-dark-base,
+    logoTextHover: $black,
+
+    textLight: $white,
+    textBase: $gray-dark-base,
+    textDark: $black,
+
+    themeBG: $gray-med-dark,
+    themeText: $white,
+    grayscaleBtn: $gray-dark-light,
+    greenDreamBtn: $green-med-base,
+    mutedBtn: $red-muted-base,
+    darkModeBtn: $black,
+    laurasPickBtn: $lilac-base,
+  ),
+);
+
+
+@mixin customize($arg: theme) {
+  $array: $themes;
+  $prefix: theme;
+
+  @each $theme, $map in $array {
+    .#{$prefix}-#{$theme} & {
+      $array-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($array, $theme), '#{$key}');
+        $array-map: map-merge($array-map, ($key: $value)) !global;
+      }
+
+      @content;
+      $array-map: null !global;
+    }
+  }
+}
+
+
+@function getValue($key) {
+  @return map-get($array-map, $key);
+}

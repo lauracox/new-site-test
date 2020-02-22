@@ -1,0 +1,20 @@
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font-brand-alt;
+	text-transform: lowercase;
+}
+
+a {
+	font-family: $font-main;
+	@include text-setting(base);
+	text-decoration: none;
+}
+
+p {
+	font-family: $font-main;
+	@include text-setting(sm);
+}
+
+span {
+	font-family: $font-main;
+	@include text-setting(sm);
+}

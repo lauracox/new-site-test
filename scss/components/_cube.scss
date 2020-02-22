@@ -1,0 +1,385 @@
+$cube-edge: 70px;
+
+#intro {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 50vh;
+	padding: 0;
+
+	#studio {
+		display: none;
+	//	font-family: $font-main;
+	//	@include text-setting(xl);
+	//	font-weight: 700;
+	//	letter-spacing: 0.1em;
+	//	text-transform: uppercase;
+	//	@include customize(theme) {color: getValue(textBase);}
+	//	display: inline-block;
+	//	width: 0;
+	//	overflow: hidden;
+	//	position: relative;
+	//	top: calc(40% - .6em);
+	//	left: calc(50% + 3*#{$cube-edge});
+	//	animation: step .6s steps(6, jump-both) 7s 1 forwards;
+	}
+
+	.hero {
+		position: relative;
+		top: calc(40% + 4em);
+		text-align: left;
+		height: 0px;
+		overflow: hidden;
+		opacity: 0;
+		animation: hero 2s cubic-bezier(0.215, 0.61, 0.355, 1) 2s 1 forwards;
+
+		p {
+			position: relative;
+			right: 10px;
+			font: 20px/28px $font-main;
+			@include customize(theme) {color: getValue(textBase);}
+			max-width: 440px;
+			margin: auto;
+		}
+
+		button {
+			margin: 0 0 0 4px;
+			position: relative;
+			bottom: 2px;
+		}
+	}
+}
+
+[class*='cube'] { position: absolute; }
+
+.container-cube {
+	width: 100%;
+	height: 100%;
+	perspective: 2000px;
+	perspective-origin: left 125%;
+	@include bp(med) {perspective-origin: -50% 125%;}
+	@include bp(small) {perspective-origin: -80% 125%;}
+}
+
+.cube {
+	transform-style: preserve-3d;
+	text-align: center;
+	
+	&-face {
+		margin: -.5*$cube-edge;
+		width: $cube-edge; height: $cube-edge;
+		@include customize(theme) {background: getValue(btnBG);}
+		white-space: nowrap;
+		
+		&:nth-child(1) {transform: rotateY(0deg) translateZ(.5*$cube-edge)}
+		&:nth-child(2) {transform: rotateY(90deg) translateZ(.5*$cube-edge)}
+		&:nth-child(3) {transform: rotateY(180deg) translateZ(.5*$cube-edge)}
+		&:nth-child(4) {transform: rotateY(270deg) translateZ(.5*$cube-edge)}
+		&:nth-child(5) {transform: rotateX(90deg) translateZ(.5*$cube-edge)}
+		&:nth-child(6) {transform: rotateX(-90deg) translateZ(.5*$cube-edge)}
+
+		span {
+			display: inline-block;
+			vertical-align: middle;
+			font: 60px/60px $font-brand;
+			letter-spacing: -5px;
+		}
+
+		.expand {
+			width: 0;
+			overflow: hidden;
+			font-family: $font-brand-alt;
+			text-align: left;
+		}
+	}
+
+	&-face:empty {@include customize(theme) {background: getValue(logoBtnShadow);}}
+}
+
+#L-cube {
+	z-index: 3;
+	top: 40%; left: -10%;
+
+	animation-name: l-fall, l-move;
+	animation-duration: 2s, 2s;
+	animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1), cubic-bezier(.39,.28,.38,1);
+	animation-delay: 0s, 2s;
+	animation-iteration-count: 1, 1;
+	animation-fill-mode: forwards, forwards;
+
+	.cube-face:not(:empty) {
+		@include customize(theme) {
+			border-top: 5px solid getValue(logoBtnShadow);
+			border-left: 5px solid getValue(logoBtnShadow);
+			border-bottom: 5px solid getValue(logoBtnShadow);
+			border-right: 5px solid getValue(logoBtnShadow);
+			color: getValue(textBase);
+		}
+
+	//	padding-left: 8px;
+
+		animation-name: l-border, grow-l2;
+		animation-duration: 2s, 2s;
+		animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1), cubic-bezier(.39,.28,.38,1);
+		animation-delay: 1.4s, 2s;
+		animation-iteration-count: 1, 1;
+		animation-fill-mode: forwards, forwards;
+	}
+	
+	.cube-face {
+		&:nth-child(1) {animation: grow-l1 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+	//	&:nth-child(2) {animation: grow-l2 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+		&:nth-child(3) {animation: grow-l3 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+		&:nth-child(4) {animation: grow-l4 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+		&:nth-child(5) {animation: grow-l5 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+		&:nth-child(6) {animation: grow-l6 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+	}
+
+	.expand {animation: l-expand 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+}
+
+#C-cube {
+	z-index: 2;
+	top: -10%; left: 50%;
+
+	animation-name: c-fall, c-move;
+	animation-duration: 2s, 2s;
+	animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1), cubic-bezier(.39,.28,.38,1);
+	animation-delay: 0s, 2s;
+	animation-iteration-count: 1, 1;
+	animation-fill-mode: forwards, forwards;
+
+	.cube-face:not(:empty) {
+		@include customize(theme) {
+			border-top: 5px solid getValue(logoBtnShadow);
+			border-left: 5px solid getValue(logoBtnShadow);
+			border-bottom: 5px solid getValue(logoBtnShadow);
+			border-right: 5px solid getValue(logoBtnShadow);
+			color: getValue(textBase);
+		}
+
+		animation-name: c-border, grow-c6;
+		animation-duration: 2s, 2s;
+		animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1), cubic-bezier(.39,.28,.38,1);
+		animation-delay: 1.4s, 2s;
+		animation-iteration-count: 1, 1;
+		animation-fill-mode: forwards, forwards;
+	}
+
+	.cube-face {
+		&:nth-child(1) {animation: grow-c1 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+		&:nth-child(2) {animation: grow-c2 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+		&:nth-child(3) {animation: grow-c3 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+		&:nth-child(4) {animation: grow-c4 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+		&:nth-child(5) {animation: grow-c5 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+	//	&:nth-child(6) {animation: grow-c6 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+	}
+
+	.expand {animation: c-expand 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+}
+
+#D-cube {
+	z-index: 1;
+	top: 40%; left: 110%;
+
+	animation-name: d-fall, d-move;
+	animation-duration: 2s, 2s;
+	animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1), cubic-bezier(.39,.28,.38,1);
+	animation-delay: 0s, 2s;
+	animation-iteration-count: 1, 1;
+	animation-fill-mode: forwards, forwards;
+
+	.cube-face:not(:empty) {
+		@include customize(theme) {
+			border-top: 5px solid getValue(logoBtnShadow);
+			border-left: 5px solid getValue(logoBtnShadow);
+			border-bottom: 5px solid getValue(logoBtnShadow);
+			border-right: 5px solid getValue(logoBtnShadow);
+			color: getValue(textBase);
+		}
+
+		animation-name: d-border, grow-d2;
+		animation-duration: 2s, 2s;
+		animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1), cubic-bezier(.39,.28,.38,1);
+		animation-delay: 1.4s, 2s;
+		animation-iteration-count: 1, 1;
+		animation-fill-mode: forwards, forwards;
+	}
+
+	.cube-face {
+		&:nth-child(1) {animation: grow-d1 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+	//	&:nth-child(2) {animation: grow-d2 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+		&:nth-child(3) {animation: grow-d3 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+		&:nth-child(4) {animation: grow-d4 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+		&:nth-child(5) {animation: grow-d5 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+		&:nth-child(6) {animation: grow-d6 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+	}
+
+	.expand {animation: d-expand 2s cubic-bezier(.39,.28,.38,1) 2s 1 forwards;}
+}
+
+// ANIMATIONS
+
+//@keyframes step {100% {width: 120px;}}
+@keyframes hero {100% {height: 112px; opacity: 1;}}
+
+// L-CUBE
+
+@keyframes l-border {100% {border-right: 0px;}}
+
+@keyframes l-fall {
+	100% {
+		transform: rotateY(630deg) scale3d(1, 1, 1);
+		left: calc(50% - .75*#{$cube-edge});
+	}
+}
+
+@keyframes l-expand {100% {width: 120px;}}
+
+@keyframes l-move {
+	0% {left: calc(50% - .75*#{$cube-edge});}
+	100% {left: calc(50% - 2.4*#{$cube-edge});}
+}
+
+@keyframes grow-l1 {
+	100% {transform: rotateY(0deg) translateZ(1.125*$cube-edge);}
+}
+
+@keyframes grow-l2 {
+	100% {
+		width: 2.25*$cube-edge;
+		transform: rotateY(90deg) translateZ(-.125*$cube-edge);
+	//	padding-left: 8px;
+	}
+}
+
+@keyframes grow-l3 {100% {transform: rotateY(180deg) translateZ(1.1*$cube-edge);}}
+
+@keyframes grow-l4 {
+	100% {
+		width: 2.25*$cube-edge;
+		transform: rotateY(270deg) translateZ(1.125*$cube-edge);
+	}
+}
+
+@keyframes grow-l5 {
+	100% {
+		height: 2.25*$cube-edge;
+		transform: rotateX(90deg) translateZ(1.125*$cube-edge);
+	}
+}
+
+@keyframes grow-l6 {
+	100% {
+		height: 2.25*$cube-edge;
+		transform: rotateX(-90deg) translateZ(-.125*$cube-edge);
+	}
+}
+
+// C-CUBE
+
+@keyframes c-fall {
+	100% {
+		transform: rotateX(-630deg) scale3d(1, 1, 1);
+		top: 40%;
+	}
+}
+
+@keyframes c-border {
+	100% {
+		border-right: 0px;
+		border-left: 0px;
+	}
+}
+
+@keyframes c-move {100% {left: calc(50% - .8*#{$cube-edge});}}
+@keyframes c-expand {100% {width: 60px;}}
+
+@keyframes grow-c1 {
+	100% {
+		width: 1.6*$cube-edge;
+		transform: rotateY(0deg) translateZ(.5*$cube-edge);
+	}
+}
+
+@keyframes grow-c2 {
+	100% {transform: rotateY(90deg) translateZ(1.1*$cube-edge);}
+}
+
+@keyframes grow-c3 {
+	100% {
+		width: 1.6*$cube-edge;
+		transform: rotateY(180deg) translateZ(.5*$cube-edge);
+	}
+}
+
+@keyframes grow-c4 {
+	100% {transform: rotateY(270deg) translateZ(.5*$cube-edge);}
+}
+
+@keyframes grow-c5 {
+	100% {
+		width: 1.6*$cube-edge;
+		transform: rotateX(90deg) translateZ(.5*$cube-edge);
+	}
+}
+
+@keyframes grow-c6 {
+	100% {
+		width: 1.6*$cube-edge;
+		transform: rotateX(-90deg) translateZ(.5*$cube-edge);
+	//	padding-left: 12px;
+	}
+}
+
+// D-CUBE
+
+@keyframes d-border {100% {border-left: 0px;}}
+
+@keyframes d-fall {
+	100% {
+		transform: rotateY(630deg) scale3d(1, 1, 1);
+		left: calc(50% + .75*#{$cube-edge});
+	}
+}
+
+@keyframes d-move {
+	0% {left: calc(50% + .75*#{$cube-edge});}
+	100% {left: calc(50% + 1.5*#{$cube-edge});}
+}
+
+@keyframes d-expand {100% {width: 130px;}}
+
+@keyframes grow-d1 {
+	100% {transform: rotateY(0deg) translateZ(1.25*$cube-edge);}
+}
+
+@keyframes grow-d2 {
+	100% {
+		width: 2.5*$cube-edge;
+		transform: rotateY(90deg) translateZ(-.25*$cube-edge);
+	}
+}
+
+@keyframes grow-d3 {100% {transform: rotateY(180deg) translateZ(1.25*$cube-edge);}}
+
+@keyframes grow-d4 {
+	100% {
+		width: 2.5*$cube-edge;
+		transform: rotateY(270deg) translateZ(1.25*$cube-edge);
+	}
+}
+
+@keyframes grow-d5 {
+	100% {
+		height: 2.5*$cube-edge;
+		transform: rotateX(90deg) translateZ(1.25*$cube-edge);
+	}
+}
+
+@keyframes grow-d6 {
+	100% {
+		height: 2.5*$cube-edge;
+		transform: rotateX(-90deg) translateZ(-.25*$cube-edge);
+	}
+}

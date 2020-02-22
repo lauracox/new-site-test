@@ -1,0 +1,186 @@
+#nav-toggle {
+	display: none;
+	@include bp(small) {
+		display: inline;
+		position: fixed;
+		right: 5px;
+		bottom: 20px;
+		padding: 4px 0;
+
+		> * {
+			font-size: 20px;
+			vertical-align: middle;
+		}
+	}
+	cursor: pointer;
+	z-index: 10;
+}
+
+header {
+	@include customize(theme) {background: getValue(menuBG);}
+}
+
+nav {
+	width: 100%;
+	height: 100%;
+}
+
+#menu {
+	> * {
+		padding: 0 2em 1em 2em;
+		@include bp(small) {padding: 0 2em;}
+	}
+
+	h2 {padding: 0.5em 0 0 0;}
+
+	h2 a {
+		font-family: $font-brand-alt;
+		@include text-setting(lg);
+
+		&:hover {@include customize(theme) {color: getValue(textDark);}}
+	}
+
+	#work-menu h2 a {@include customize(theme) {color: getValue(workMenuTitle);}}
+	#play-menu h2 a {@include customize(theme) {color: getValue(playMenuTitle);}}
+	#info-menu h2 a {@include customize(theme) {color: getValue(infoMenuTitle);}}
+	#work-menu h2 a:hover {@include customize(theme) {color: getValue(workMenuHover);}}
+	#play-menu h2 a:hover {@include customize(theme) {color: getValue(playMenuHover);}}
+	#info-menu h2 a:hover {@include customize(theme) {color: getValue(infoMenuHover);}}
+
+	ul {@include bp(small) {padding-bottom: 1em;}}
+
+	li {
+		margin: 0.2em 0;
+
+		a {
+			@include text-setting(xs);
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			@include customize(theme) {color: getValue(menuText);}
+			display: block;
+			padding: 0.2em 0.8em;
+
+			@include bp(small) {
+				@include text-setting(base);
+				padding: 0.4em 0.8em;
+			}
+		}
+
+		&:hover {
+			@include customize(theme) {
+				background: getValue(menuBGHover);
+				box-shadow: getValue(iconColor) -0.2em 0;
+			}
+		}
+
+		&:hover a {@include customize(theme) {color: getValue(menuTextHover);}}
+	}
+}
+
+#work-menu {@include customize(theme) {background: getValue(workMenuBG)}}
+#play-menu {@include customize(theme) {background: getValue(playMenuBG)}}
+#info-menu {@include customize(theme) {background: getValue(infoMenuBG)}}
+
+#theme-menu {
+	@include customize(theme) {
+		background: getValue(themeBG);
+		color: getValue(themeText);
+	}
+
+	width: 300px; 
+	height: 27px;
+	display: inline-flex;
+	overflow: hidden;
+	position: absolute;
+	bottom: 0;
+	padding: 2px 2em;
+	@include bp(small) {padding: 20px 2em;}
+	text-align: left;
+
+	@include bp(small) {
+		width: 100%; 
+		height: 60px;
+	}
+
+	h4 {padding: 0 5px 0 0;}
+
+	* {
+		font-family: $font-caption;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		@include text-setting(xs);
+		@include bp(small) {font-size: 16px; line-height: 20px;}
+	}
+
+	#theme-btn-menu {
+		display: inline-flex;
+		flex-flow: column nowrap;
+		align-items: flex-start;
+	}
+
+	button {
+		display: block;
+		margin: 0 0 5px 0;
+		&.current-theme {order: 1;}
+		&:not(.current-theme) {order: 2;}
+		@include bp(small) {margin: 0 0 20px 0;}
+		cursor: pointer;
+		background: none !important;
+		@include customize(theme) {color: getValue(themeText);}
+
+		&.drop:before {
+			content: "";
+			display: inline-block;
+			width: 10px; height: 10px;
+			@include bp(small) {width: 12px; height: 12px;}
+			margin: 0 6px 0 0;
+			position: relative;
+			top: 1px;
+			border-radius: 100% 0% 55% 45% / 55% 0% 100% 45%;
+			transform: rotate(-45deg);
+			@include customize(theme) {background: getValue(themeText);}
+			opacity: 100%;
+		}
+
+		&:hover {
+			background: none !important;
+			box-shadow: none !important;
+		}
+
+		&#btn-gray:hover {@include customize(theme) {color: getValue(grayscaleBtn);}}
+		&#btn-gray:before {@include customize(theme) {background: getValue(grayscaleBtn);}}
+		&#btn-green:hover {@include customize(theme) {color: getValue(greenDreamBtn);}}
+		&#btn-green:before {@include customize(theme) {background: getValue(greenDreamBtn);}}
+		&#btn-muted:hover {@include customize(theme) {color: getValue(mutedBtn);}}
+		&#btn-muted:before {@include customize(theme) {background: getValue(mutedBtn);}}
+		&#btn-dark:hover {@include customize(theme) {color: getValue(darkModeBtn);}}
+		&#btn-dark:before {@include customize(theme) {background: getValue(darkModeBtn);}}
+		&#btn-laura:hover {@include customize(theme) {color: getValue(laurasPickBtn);}}
+		&#btn-laura:before {@include customize(theme) {background: getValue(laurasPickBtn);}}
+	}
+
+	#close-themes {
+		display: none;
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 4px;
+		@include bp(small) {padding: 20px;}
+		cursor: pointer;
+		background: none !important;
+		@include customize(theme) {color: getValue(themeText);}
+		&:hover {@include customize(theme) {color: getValue(textBase);}}
+	}
+
+}
+
+@keyframes color-drop {
+	0% {border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;}
+	75% {opacity: 100%;}
+	100% {
+		border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+		transform: rotate(-45deg) scale(500);
+		opacity: 0;
+	}
+}

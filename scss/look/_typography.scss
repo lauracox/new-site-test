@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Nova+Round');
+@import url('https://fonts.googleapis.com/css?family=Nova+Cut&display=swap');
+@import url('https://use.typekit.net/nid1qra.css');
+
+$font-main: 'Lato', sans-serif;
+$font-brand: 'Nova Round', 'Lato', sans-serif;
+$font-brand-alt: 'Nova Cut', 'Lato', sans-serif;
+$font-caption: 'Motor', interstate-mono, monospace;
+
+html {font-size: 16px;}
+
+// https://codeburst.io/a-successful-sass-theme-structure-ca9d1c477dc7
+
+$base-font-size: 1rem;
+$base-line-height: 1.25 * $base-font-size;
+
+$text-settings: (
+  'xs': (
+    font-size: .75rem,
+    line-height: $base-line-height
+  ),
+  'sm': (
+    font-size: .875rem,
+    line-height: $base-line-height
+  ),
+  'base': (
+    font-size: 1rem,
+    line-height: $base-line-height
+  ),
+  'md': (
+    font-size: 1.125rem,
+    line-height: $base-line-height * 2
+  ),
+  'lg': (
+    font-size: 1.25rem,
+    line-height: $base-line-height * 2
+  ),
+  'xl': (
+    font-size: 1.5rem,
+    line-height: $base-line-height * 2
+  )
+);
+
+@function text-scale($level) {
+  @return map-get(map-get($text-settings, $level), 'font-size');
+}
+
+@function line-height($level) {
+  @return map-get(map-get($text-settings, $level), 'line-height');
+}
+
+@mixin text-setting($level) {
+  font-size: text-scale($level);
+  line-height: line-height($level);
+}

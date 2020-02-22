@@ -1,0 +1,71 @@
+footer {
+
+	li {
+		a {
+			@include text-setting(xs);
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			@include customize(theme) {color: getValue(footerText);}
+			display: block;
+			padding: 0.2em 0.8em;
+		}
+	
+		&:hover {
+			@include customize(theme) {
+				background: getValue(footerBGHover);
+				box-shadow: getValue(iconColor) -0.2em 0;
+			}
+		}
+
+		&:hover a {@include customize(theme) {color: getValue(footerTextHover);}}
+	}
+	
+	#info {
+		@include bp(med) {padding: 0 1em;}
+		@include customize(theme) {background: getValue(footerBG);}
+
+		> * {padding: 1em 1em 2em 1em;}
+
+		h4 {
+			@include text-setting(lg);
+			@include customize(theme) {color: getValue(infoTitle);}
+		}
+	}
+
+	#about {
+		min-width: 300px;
+		position: relative;
+
+		img {
+			max-width: 100px;
+			float: left;
+			margin: 0 1em 0 0;
+		}
+
+		p {
+			@include customize(theme) {color: getValue(footerText)}
+			padding: 0 0 1em 0;
+		}
+
+		button {margin: 0 1em 0 0;}
+	}
+
+	#copyright {
+		text-align: center;
+		padding: 0 0 4px 0;
+		@include bp(small) {line-height: 10px;}
+
+		@include customize(theme) {
+			background: getValue(copyBG);
+		}
+
+		span {
+			font-family: $font-caption;
+			letter-spacing: 0.1em;
+			@include text-setting(xs);
+			@include bp(small) {font-size: 12px; line-height: 10px;}
+			@include customize(theme) {color: getValue(copyText);}
+		}
+	}
+}

@@ -1,0 +1,106 @@
+#work .preview a h3 {@include customize(theme) {color: getValue(workTitle);}}
+#work .preview a:hover h3 {@include customize(theme) {color: getValue(workTitleHover);}}
+#play .preview a h3 {@include customize(theme) {color: getValue(playTitle);}}
+#play .preview a:hover h3 {@include customize(theme) {color: getValue(playTitleHover);}}
+
+
+.preview {
+	@include customize(theme) {background: getValue(contentBG);}
+	position: relative;
+	
+	.image {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+
+		img {
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.text {
+		display: inline-block;
+		position: absolute;
+		top: 3px;
+		left: 0;
+		margin: 1em;
+		@include bp(med) {margin: 0;}
+
+		h3 {
+			display: inline;
+			font-family: $font-brand-alt;
+			font-size: 1.5rem;
+			line-height: 1.35em;
+			padding: 4px 8px;
+			@include customize(theme) {background: getValue(headBG);}
+			box-decoration-break: clone;
+		}
+
+		p {
+			width: 100%;
+			max-width: 250px;
+			height: 0;
+			@include bp(med) {
+				max-width: 100%;
+				height: 100%;
+				padding: 8px;
+			}
+			overflow: hidden;
+			font-family: $font-main;
+			@include text-setting(base);
+			@include customize(theme) {
+				color: getValue(textDark);
+				background: rgba(getValue(contentBG), .8);
+			}
+			margin-top: 2px;
+		}
+	}
+
+	a:hover {
+		h3 {@include customize(theme) {background: getValue(headBGHover);}}
+		p {
+			height: 100%;
+			padding: 8px;
+		}
+	}
+
+	.tags {
+		display: flex;
+		flex-flow: row nowrap;
+		width: 100%;
+		height: calc(1em + 4px);
+		overflow: hidden;
+		position: absolute;
+		bottom: 0;
+		padding: 0 4px;
+		@include customize(theme) {background: getValue(tagBG);}
+
+		a {
+			font: .75rem $font-caption;
+			letter-spacing: 0.1em;
+			padding: 2px 6px;
+			@include customize(theme) {color: getValue(tagText);}
+
+			&:hover {@include customize(theme) {color: getValue(tagTextHover);}}
+		}
+	}
+}
+
+.long-feature {@media (min-width: 1032px) {grid-column: span 2;}}
+.tall-feature {@media (min-width: 1032px) {grid-row: span 2;}}
+
+.big-feature {
+	@media (min-width: 1032px) {
+		grid-column: span 2;
+		grid-row: span 2;
+	}
+}
+
+.small-filler {@include bp(large) {display: none;}}
+.big-filler {@include bp(xl) {display: none;}}
+
+#intro {@include customize(theme) {background: getValue(logoBG);}}
+#work {@include customize(theme) {background: getValue(workBG);}}
+#play {@include customize(theme) {background: getValue(playBG);}}
