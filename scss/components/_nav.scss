@@ -117,48 +117,58 @@ nav {
 		display: inline-flex;
 		flex-flow: column nowrap;
 		align-items: flex-start;
+
+		div {order: 2;}
 	}
 
-	button {
-		display: block;
+	input {display: none;}
+
+	label {
+		display: inline-block;
+	//	order: 2;
 		margin: 0 0 5px 0;
-		&.current-theme {order: 1;}
-		&:not(.current-theme) {order: 2;}
 		@include bp(small) {margin: 0 0 20px 0;}
-		cursor: pointer;
-		background: none !important;
+	//	cursor: pointer;
+	//	background: none !important;
 		@include customize(theme) {color: getValue(themeText);}
-
-		&.drop:before {
-			content: "";
-			display: inline-block;
-			width: 10px; height: 10px;
-			@include bp(small) {width: 12px; height: 12px;}
-			margin: 0 6px 0 0;
-			position: relative;
-			top: 1px;
-			border-radius: 100% 0% 55% 45% / 55% 0% 100% 45%;
-			transform: rotate(-45deg);
-			@include customize(theme) {background: getValue(themeText);}
-			opacity: 100%;
-		}
-
-		&:hover {
-			background: none !important;
-			box-shadow: none !important;
-		}
-
-		&#btn-gray:hover {@include customize(theme) {color: getValue(grayscaleBtn);}}
-		&#btn-gray:before {@include customize(theme) {background: getValue(grayscaleBtn);}}
-		&#btn-green:hover {@include customize(theme) {color: getValue(greenDreamBtn);}}
-		&#btn-green:before {@include customize(theme) {background: getValue(greenDreamBtn);}}
-		&#btn-muted:hover {@include customize(theme) {color: getValue(mutedBtn);}}
-		&#btn-muted:before {@include customize(theme) {background: getValue(mutedBtn);}}
-		&#btn-dark:hover {@include customize(theme) {color: getValue(darkModeBtn);}}
-		&#btn-dark:before {@include customize(theme) {background: getValue(darkModeBtn);}}
-		&#btn-laura:hover {@include customize(theme) {color: getValue(laurasPickBtn);}}
-		&#btn-laura:before {@include customize(theme) {background: getValue(laurasPickBtn);}}
 	}
+
+//	label.current-theme {order: 1;}
+//	label:not(.current-theme) {order: 2;}
+
+	.drop:before {
+		content: "";
+		display: inline-block;
+		width: 10px; height: 10px;
+		@include bp(small) {width: 12px; height: 12px;}
+		margin: 0 6px 0 0;
+		position: relative;
+		top: 1px;
+		border-radius: 100% 0% 55% 45% / 55% 0% 100% 45%;
+		transform: rotate(-45deg);
+		@include customize(theme) {background: getValue(themeText);}
+		opacity: 100%;
+	}
+
+	[for="btn-gray"]:hover {@include customize(theme) {color: getValue(grayscaleBtn);}}
+	[for="btn-gray"]:before {@include customize(theme) {background: getValue(grayscaleBtn);}}
+//	#btn-gray:checked {order: 1;}
+
+	[for="btn-green"]:hover {@include customize(theme) {color: getValue(greenDreamBtn);}}
+	[for="btn-green"]:before {@include customize(theme) {background: getValue(greenDreamBtn);}}
+//	#btn-green:checked {order: 1;}
+
+	[for="btn-muted"]:hover {@include customize(theme) {color: getValue(mutedBtn);}}
+	[for="btn-muted"]:before {@include customize(theme) {background: getValue(mutedBtn);}}
+//	#btn-muted:checked {order: 1;}
+
+	[for="btn-dark"]:hover {@include customize(theme) {color: getValue(darkModeBtn);}}
+	[for="btn-dark"]:before {@include customize(theme) {background: getValue(darkModeBtn);}}
+//	#btn-dark:checked {order: 1;}
+
+	[for="btn-laura"]:hover {@include customize(theme) {color: getValue(laurasPickBtn);}}
+	[for="btn-laura"]:before {@include customize(theme) {background: getValue(laurasPickBtn);}}
+//	#btn-laura:checked {order: 1;}
 
 	#close-themes {
 		display: none;
@@ -171,16 +181,5 @@ nav {
 		background: none !important;
 		@include customize(theme) {color: getValue(themeText);}
 		&:hover {@include customize(theme) {color: getValue(textBase);}}
-	}
-
-}
-
-@keyframes color-drop {
-	0% {border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;}
-	75% {opacity: 100%;}
-	100% {
-		border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
-		transform: rotate(-45deg) scale(500);
-		opacity: 0;
 	}
 }

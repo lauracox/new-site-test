@@ -44,13 +44,28 @@
 				</div>
 				<div id="theme-menu">
 					<h4>Current&nbsp;Theme:</h4>
-					<div id="theme-btn-menu">
-						<button class="drop" id="btn-gray">Grayscale</button>
-						<button class="drop" id="btn-green">Green&nbsp;Dream</button>
-						<button class="drop" id="btn-muted">Muted</button>
-						<button class="drop" id="btn-dark">Dark&nbsp;Mode</button>
-						<button class="drop" id="btn-laura">Laura's&nbsp;Pick</button>
-					</div>
+					<form id="theme-btn-menu">
+						<div id="wrap-btn-gray">
+							<input type="radio" id="btn-gray" name="theme" value="grayscale">
+							<label for="btn-gray" class="drop">Grayscale</label>
+						</div>
+						<div id="wrap-btn-green">
+							<input type="radio" id="btn-green" name="theme" value="green dream">
+							<label for="btn-green" class="drop">Green&nbsp;Dream</label>
+						</div>
+						<div id="wrap-btn-muted">
+							<input type="radio" id="btn-muted" name="theme" value="muted">
+							<label for="btn-muted" class="drop">Muted</label>
+						</div>
+						<div id="wrap-btn-dark">
+							<input type="radio" id="btn-dark" name="theme" value="dark mode">
+							<label for="btn-dark" class="drop">Dark&nbsp;Mode</label>
+						</div>
+						<div id="wrap-btn-laura">
+							<input type="radio" id="btn-laura" name="theme" value="laura's pick">
+							<label for="btn-laura" class="drop">Laura's&nbsp;Pick</label>
+						</div>
+					</form>
 					<button id="close-themes">&#10006;</button>
 				</div>
 			</div>
